@@ -29,8 +29,21 @@ function findSteps(id) {
         .orderBy('steps.step_number')
 }
 
+function add(scheme) {
+    return db('schemes')
+        .insert(scheme)
+}
+
+function update(scheme, id) {
+    return db('schemes')
+        .where({ id })
+        .update(scheme)
+}
+
 module.exports = {
     find,
     findById,
-    findSteps
+    findSteps,
+    add,
+    update
 }
