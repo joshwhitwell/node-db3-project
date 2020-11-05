@@ -40,10 +40,17 @@ function update(scheme, id) {
         .update(scheme)
 }
 
+function remove(id) {
+    return db('schemes')
+        .where({ id })
+        .delete()
+}
+
 module.exports = {
     find,
     findById,
     findSteps,
     add,
-    update
+    update,
+    remove
 }
